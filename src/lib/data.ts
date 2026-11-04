@@ -1,5 +1,5 @@
 // =====================================================================
-// Central content for the VPAI @ CVPR 2027 workshop website.
+// Central content for the DPAI @ CVPR 2027 workshop website.
 // Edit the values here to update the site; pages read from this file.
 // =====================================================================
 
@@ -12,19 +12,19 @@ export const links = {
 };
 
 export const workshop = {
-  acronym: 'VPAI',
-  shortName: 'VPAI @ CVPR 2027',
+  acronym: 'DPAI',
+  shortName: 'DPAI @ CVPR 2027',
   title: 'Detection, Provenance, and Authorized Use of Generative AI',
   status: 'Active Proposal',
   location: 'CVPR 2027 · Seattle, WA',
   date: 'June 20 or 21, 2027 · Half-day',
   dateNote: 'In person. The exact date and time slot will be assigned by CVPR.',
   tagline:
-    'VPAI @ CVPR 2027 — a half-day workshop on detection, provenance, and authorized use of generative AI, with invited talks, archival research papers, a closing panel, and the Impostor Avatar Challenge.',
+    'DPAI @ CVPR 2027 — a half-day workshop on detection, provenance, and authorized use of generative AI, with invited talks, archival research papers, a closing panel, and the Impostor Avatar Challenge.',
   openReviewUrl: '#', // Not live yet — opens upon workshop acceptance.
   abstract: [
     [
-      'Generative AI is now ubiquitous in content creation, remote communication, and broadcasting. Policy measures such as the EU AI Act must be complemented by continuously evolving algorithms for verification, provenance, and identity assurance. VPAI brings together researchers across multimedia GenAI and forensics, content authenticity, provenance, and identity verification to examine these capabilities and their limitations.',
+      'Generative AI is now ubiquitous in content creation, remote communication, and broadcasting. Policy measures such as the EU AI Act must be complemented by continuously evolving algorithms for verification, provenance, and identity assurance. DPAI brings together researchers across multimedia GenAI and forensics, content authenticity, provenance, and identity verification to examine these capabilities and their limitations.',
     ],
     [
       'The half-day program combines keynotes, invited talks, archival research papers, and a closing panel around three pillars: verification and forensic attribution, provenance and creator attribution, and authorized use of AI-mediated interactions. It also features the ',
