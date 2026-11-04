@@ -1,7 +1,7 @@
 {
-  "name": "vpai-cvpr2027.github.io",
+  "name": "dpai-cvpr2027.github.io",
   "version": "1.0.0",
-  "description": "Workshop website for VPAI @ CVPR 2027 — Detection, Provenance, and Authorized Use of Generative AI",
+  "description": "Workshop website for DPAI @ CVPR 2027 — Detection, Provenance, and Authorized Use of Generative AI",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,7 +9,7 @@
     "lint": "next lint",
     "export": "next build"
   },
-  "author": "VPAI Workshop Organizers",
+  "author": "DPAI Workshop Organizers",
   "license": "MIT",
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",

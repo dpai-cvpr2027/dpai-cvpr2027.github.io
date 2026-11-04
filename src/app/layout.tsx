@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: workshop.tagline,
   keywords: [
     'CVPR 2027',
-    'VPAI',
+    'DPAI',
     'detection',
     'provenance',
     'authorized use',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     'media forensics',
     'workshop',
   ],
-  metadataBase: new URL('https://vpai-cvpr2027.github.io'),
+  metadataBase: new URL('https://dpai-cvpr2027.github.io'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
