@@ -30,6 +30,11 @@ export default function PersonGrid({ people, size = 80 }: PersonGridProps) {
             <p className="text-xs text-neutral-500 mt-0.5">
               {person.affiliation}
             </p>
+            {person.role && (
+              <p className="text-xs font-semibold text-neutral-700 mt-0.5">
+                {person.role}
+              </p>
+            )}
             {badge && (
               <span
                 className={`font-ui text-[0.625rem] font-semibold uppercase tracking-wide px-2 py-0.5 leading-none mt-2 ${badgeToneClass[badge.tone]}`}

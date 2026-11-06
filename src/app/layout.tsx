@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     'generative AI',
     'watermarking',
     'avatar fingerprinting',
+    'identity verification',
+    'biological provenance',
     'Impostor Avatar Challenge',
     'media forensics',
     'workshop',
