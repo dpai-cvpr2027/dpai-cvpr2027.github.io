@@ -6,9 +6,8 @@ import {
   schedule,
   scheduleNote,
   recordingNote,
-  keynoteSpeakers,
-  invitedSpeakers,
-  panelists,
+  speakers,
+  moderators,
   speakersNote,
 } from '@/lib/data';
 
@@ -17,9 +16,8 @@ export const metadata: Metadata = {
 };
 
 const speakerGroups = [
-  { title: 'Keynote Speakers', people: keynoteSpeakers },
-  { title: 'Invited Speakers', people: invitedSpeakers },
-  { title: 'Panelists', people: panelists },
+  { title: 'Speakers', people: speakers },
+  { title: 'Panel Moderator', people: moderators },
 ];
 
 export default function SchedulePage() {
@@ -75,6 +73,9 @@ export default function SchedulePage() {
         <SectionHeading>Speakers &amp; Panelists</SectionHeading>
         {anySpeakers ? (
           <div className="space-y-10">
+            <p className="text-sm text-neutral-500 leading-relaxed">
+              {speakersNote}
+            </p>
             {speakerGroups
               .filter((g) => g.people.length > 0)
               .map((g) => (
@@ -100,7 +101,7 @@ export default function SchedulePage() {
         <SectionHeading>Accepted Papers</SectionHeading>
         <TbaBox>
           Accepted papers will be listed here after author notification on
-          March 19, 2027.
+          March 22, 2027.
         </TbaBox>
       </section>
     </div>

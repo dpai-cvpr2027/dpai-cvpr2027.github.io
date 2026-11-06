@@ -71,7 +71,7 @@ export default function ChallengePage() {
       <section className="mb-12">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
-            { label: 'Launch', value: 'Dec 1, 2026' },
+            { label: 'Launch', value: 'Dec 15, 2026' },
             { label: 'Final submissions', value: 'Jun 6, 2027 AoE' },
             { label: 'Results at CVPR', value: 'Jun 20 or 21, 2027' },
           ].map((k) => (
@@ -149,6 +149,13 @@ export default function ChallengePage() {
             </p>
           ))}
         </div>
+      </section>
+
+      <section className="mb-12">
+        <SectionHeading>Prizes</SectionHeading>
+        <p className="text-base text-neutral-700 leading-relaxed">
+          {challenge.prizes}
+        </p>
       </section>
 
       <section className="mb-12">

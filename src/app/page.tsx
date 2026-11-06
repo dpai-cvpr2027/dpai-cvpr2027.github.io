@@ -6,15 +6,14 @@ import TbaBox from '@/components/TbaBox';
 import {
   workshop,
   challenge,
-  keynoteSpeakers,
-  invitedSpeakers,
-  panelists,
+  speakers as prospectiveSpeakers,
+  moderators,
   speakersNote,
   organizers,
 } from '@/lib/data';
 
 export default function HomePage() {
-  const speakers = [...keynoteSpeakers, ...invitedSpeakers, ...panelists];
+  const speakers = [...prospectiveSpeakers, ...moderators];
 
   return (
     <div className="site-container py-12 md:py-16">
@@ -76,7 +75,12 @@ export default function HomePage() {
           </Link>
         </div>
         {speakers.length > 0 ? (
-          <PersonGrid people={speakers} size={72} />
+          <>
+            <PersonGrid people={speakers} size={72} />
+            <p className="text-xs font-ui text-neutral-400 mt-6 leading-relaxed">
+              {speakersNote}
+            </p>
+          </>
         ) : (
           <TbaBox>{speakersNote}</TbaBox>
         )}
@@ -126,8 +130,8 @@ export default function HomePage() {
             </div>
             <p className="text-sm text-neutral-600 leading-relaxed flex-1">
               Submit 8-page papers on detection, provenance, and authorized
-              use of generative AI. Double-blind, archival in the CVPR 2027
-              workshop proceedings.
+              use of AI, including provenance for biological design.
+              Double-blind, archival in the CVPR 2027 workshop proceedings.
             </p>
             <span className="font-ui text-sm font-medium text-primary-600 group-hover:text-primary-700 mt-4 inline-flex items-center gap-1">
               Read the call
@@ -150,7 +154,7 @@ export default function HomePage() {
             </div>
             <p className="text-sm text-neutral-600 leading-relaxed flex-1">
               Verify whether a talking-head video is driven by the person it
-              depicts. Launches December 1, 2026; no paper required.
+              depicts. Launches December 15, 2026; no paper required.
             </p>
             <span className="font-ui text-sm font-medium text-primary-600 group-hover:text-primary-700 mt-4 inline-flex items-center gap-1">
               About the challenge
@@ -165,7 +169,7 @@ export default function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
               </svg>
               <h3 className="text-base font-bold text-neutral-900">
-                Best Paper Award
+                Awards &amp; Prizes
               </h3>
             </div>
             <p className="text-sm text-neutral-600 leading-relaxed">

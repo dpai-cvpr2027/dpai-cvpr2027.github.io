@@ -14,33 +14,39 @@ export const links = {
 export const workshop = {
   acronym: 'DPAI',
   shortName: 'DPAI @ CVPR 2027',
-  title: 'Detection, Provenance, and Authorized Use of Generative AI',
+  title: 'Detection, Provenance, and Authorized Use of AI',
   status: 'Active Proposal',
   location: 'CVPR 2027 · Seattle, WA',
   date: 'June 20 or 21, 2027 · Half-day',
   dateNote: 'In person. The exact date and time slot will be assigned by CVPR.',
   tagline:
-    'DPAI @ CVPR 2027 — a half-day workshop on detection, provenance, and authorized use of generative AI, with invited talks, archival research papers, a closing panel, and the Impostor Avatar Challenge.',
+    'DPAI @ CVPR 2027 — a half-day workshop on detection, provenance, and authorized use of AI, spanning multimedia forensics, content authenticity, provenance for AI-designed biological sequences, and identity verification, with invited talks, archival research papers, the Impostor Avatar Challenge, and a closing panel.',
   openReviewUrl: '#', // Not live yet — opens upon workshop acceptance.
   abstract: [
     [
-      'Generative AI is now ubiquitous in content creation, remote communication, and broadcasting. Policy measures such as the EU AI Act must be complemented by continuously evolving algorithms for verification, provenance, and identity assurance. DPAI brings together researchers across multimedia GenAI and forensics, content authenticity, provenance, and identity verification to examine these capabilities and their limitations.',
+      'The use of generative AI (GenAI) is now ubiquitous across nearly every aspect of our digital and physical world: from the content we create and consume, to remote communication and broadcasting, and beyond the screen to medicine and biology. Policy measures supporting trustworthy use, such as the EU AI Act, must be complemented by advanced and continuously evolving algorithms for detection, provenance, and identity assurance.',
     ],
     [
-      'The half-day program combines keynotes, invited talks, archival research papers, and a closing panel around three pillars: verification and forensic attribution, provenance and creator attribution, and authorized use of AI-mediated interactions. It also features the ',
+      'DPAI brings together a diverse set of researchers across multimedia GenAI forensics, content authenticity, provenance — including emerging provenance for AI-designed biological sequences — and identity verification. The half-day program combines invited talks, archival research papers, a challenge track, and a closing panel around four research pillars: detection and forensic attribution, provenance and creator attribution, provenance for biological design, and authorized use of AI-mediated interactions.',
+    ],
+    [
+      'The challenge track, the ',
       { text: 'Impostor Avatar Challenge', href: links.challenge },
-      ', launching in December 2026, which asks whether a talking-head video is driven by the person it depicts and identifies unauthorized impostor drivers.',
+      ', tackles a critical question looming over remote communication and broadcasting platforms: verifying whether a talking-head video is driven by the person it depicts and identifying an unauthorized impostor driver. The challenge launches on December 15, 2026, and its winners will be announced at the workshop.',
     ],
   ] as RichParagraph[],
   awards:
-    'A best-paper award and two honorable mentions are announced during the closing session, separate from the Impostor Avatar Challenge awards.',
+    'A best-paper award and two honorable mentions are announced during the closing session, separate from the Impostor Avatar Challenge awards. GPU prizes will go to the best paper and to the top performer in the challenge; the exact GPU model will be chosen to comply with US government export restrictions, which may prevent shipping to some locations.',
 };
 
 export interface Person {
   name: string;
   affiliation: string;
   url?: string;
+  // Program role shown under the affiliation (e.g. "Panel moderator").
   role?: string;
+  // Talk or discussion focus area, shown in italics.
+  topic?: string;
   bio?: string;
   confirmed?: boolean;
   // Free-form status label (e.g. "Tentative"); overrides the default
@@ -49,21 +55,77 @@ export interface Person {
   photo?: string;
 }
 
-// Speakers and panelists are announced once confirmed for CVPR 2027.
-// The half-day program reserves two keynotes, two invited talks, and a
-// closing panel.
-export const keynoteSpeakers: Person[] = [];
-export const invitedSpeakers: Person[] = [];
-export const panelists: Person[] = [];
+// Prospective speakers and panelists, with confirmed or tentative
+// participation. The half-day program reserves two keynotes, two invited
+// talks, and a closing panel; assignments to the keynote and invited-talk
+// slots will be agreed with speakers once the workshop is accepted.
+export const speakers: Person[] = [
+  {
+    name: 'Ilke Demir',
+    affiliation: 'Cauth AI',
+    topic: 'Trustworthy AI through content authentication',
+    bio: 'Founder and CEO of Cauth AI and co-creator of FakeCatcher.',
+    status: 'Confirmed',
+  },
+  {
+    name: 'Hany Farid',
+    affiliation: 'GetReal Security; Dartmouth College',
+    topic: 'Scalable media forensics',
+    status: 'Confirmed',
+  },
+  {
+    name: 'Shawn Shan',
+    affiliation: 'Dartmouth College',
+    topic: 'Creator protection against generative mimicry',
+    status: 'Confirmed',
+  },
+  {
+    name: 'Chris Bregler',
+    affiliation: 'Google DeepMind',
+    topic: 'Generative video and deep synthesis',
+    status: 'Confirmed',
+  },
+  {
+    name: 'Luisa Verdoliva',
+    affiliation: 'University of Naples Federico II',
+    topic: 'Reliable detection of synthetic media',
+    bio: 'Leader of the Multimedia Forensics Lab.',
+    status: 'Tentative',
+  },
+  {
+    name: 'Nicholas Carlini',
+    affiliation: 'Anthropic',
+    topic: 'Adversarial robustness and model red-teaming',
+    status: 'Tentative',
+  },
+  {
+    name: 'Alex Engler',
+    affiliation: 'Penn Center on Media, Technology, and Democracy',
+    topic: 'AI governance and algorithmic accountability',
+    status: 'Tentative',
+  },
+];
+
+export const moderators: Person[] = [
+  {
+    name: 'David Luebke',
+    affiliation: 'NVIDIA',
+    role: 'Panel moderator',
+    topic: 'Graphics research and avatar authentication',
+    bio: 'Vice President of Graphics Research at NVIDIA.',
+    status: 'Confirmed',
+    photo: '/images/luebke.jpg',
+  },
+];
 
 export const speakersNote =
-  'The program reserves two keynotes and two invited talks, each with a 30-minute slot including questions, and a 35-minute closing panel that connects these perspectives to the implications of the challenge results. Speakers and panelists will be announced here once confirmed.';
+  'The program reserves two keynotes and two invited talks, each with a 30-minute slot including questions, and a 35-minute closing panel that connects these perspectives to the implications of the challenge results. The list records confirmed and tentative participation and focus areas; final assignments to the keynote and invited-talk slots will be agreed with speakers, and the CVPR program is subject to workshop acceptance.';
 
 export const organizers: Person[] = [
   {
     name: 'Ekta Prashnani',
     affiliation: 'NVIDIA',
-    bio: 'Senior Research Scientist at NVIDIA whose work spans avatar fingerprinting and synthetic-video detection. She is lead author of the ECCV 2024 avatar-fingerprinting paper and has contributed to impersonation defenses and generalizable, deployment-ready video forensics. She has co-organized CVPR and ECCV workshops on computer vision for videogames.',
+    bio: 'Senior Research Scientist at NVIDIA whose work spans avatar fingerprinting and synthetic-video detection. She is lead author of the pioneering paper on avatar fingerprinting at ECCV 2024 and has contributed to impersonation defenses and generalizable, deployment-ready video forensics. She has co-organized CVPR and ECCV workshops on computer vision for videogames.',
     photo: '/images/prashnani.jpg',
   },
   {
@@ -75,27 +137,27 @@ export const organizers: Person[] = [
   {
     name: 'Maty Bohacek',
     affiliation: 'Stanford University',
-    bio: 'Student researcher at Stanford and Google DeepMind, advised by Maneesh Agrawala. His work includes Human Action CLIPs and the DeepSpeak dataset. He co-organized APAI at ICCV 2025 and CVPR 2026.',
+    bio: 'Researcher at Stanford, previously at Google DeepMind, advised by Maneesh Agrawala. His work includes Human Action CLIPs and the DeepSpeak dataset. He co-organized APAI at ICCV 2025 and CVPR 2026.',
     photo: '/images/bohacek.jpg',
   },
   {
     name: 'Sarah Barrington',
     affiliation: 'UC Berkeley',
-    bio: 'PhD candidate in Hany Farid’s digital forensics lab. Her research examines human responses to synthetic media, including the detection of AI-generated voice clones; she also co-created DeepSpeak. She co-organized APAI at ICCV 2025.',
+    bio: 'PhD candidate in Hany Farid’s digital forensics lab. Her research examines human responses to synthetic media, including the detection of AI-generated voice clones; she also co-created DeepSpeak. She co-organized APAI at ICCV 2025 and CVPR 2026.',
     photo: '/images/barrington.jpg',
   },
   {
     name: 'Jesse Hostetler',
     affiliation: 'UL Research Institutes',
     url: 'https://jhostetler.github.io/',
-    bio: 'Research Engineer at UL Research Institutes who leads development of the Dyff cloud platform that will host the Impostor Avatar Challenge. He holds a PhD from Oregon State University and has a research background in artificial intelligence, machine learning, and planning.',
+    bio: 'Research Engineer at UL Research Institutes (ULRI) who leads development of the Dyff cloud platform that will host the Impostor Avatar Challenge. He holds a PhD from Oregon State University and has a research background in artificial intelligence, machine learning, and planning. He represents ULRI, whose Digital Safety Research Institute (DSRI) has hosted the SAFE video and audio challenges and the Image Edit Detection and Localization Challenge.',
     photo: '/images/hostetler.jpg',
   },
   {
     name: 'Aleksandar Petrov',
     affiliation: 'Google DeepMind',
     url: 'https://p-petrov.com/',
-    bio: 'Research Scientist at Google DeepMind working on multimedia provenance and watermarking within the SynthID effort. His research on the coexistence and ensembling of watermarks connects the workshop to questions about combining provenance mechanisms in practical systems.',
+    bio: 'Research Scientist at Google DeepMind working on multimedia provenance and watermarking within the SynthID effort. His research on the coexistence and ensembling of watermarks connects the workshop to questions about combining provenance mechanisms in practical systems, and to the SynthID team’s extension of watermarking to biological design.',
   },
   {
     name: 'Matthew Stamm',
@@ -104,31 +166,18 @@ export const organizers: Person[] = [
     photo: '/images/stamm.jpg',
   },
   {
-    name: 'David Luebke',
-    affiliation: 'NVIDIA',
-    bio: 'Vice President of Graphics Research at NVIDIA. He co-authored the avatar-fingerprinting and puppeteering-defense papers; his expertise in rendering and generative graphics connects the creation of synthetic representations to their verification.',
-    photo: '/images/luebke.jpg',
-  },
-  {
-    name: 'Jill Crisman',
-    affiliation: 'UL Research Institutes',
-    bio: 'Vice President and Executive Director of the Digital Safety Research Institute at UL Research Institutes. The institute runs research challenges that independently evaluate media-forensics systems and publish evaluation findings. She brings experience in comparative evaluation and engagement with researchers developing practical forensic capabilities.',
-    photo: '/images/crisman.jpg',
-  },
-  {
-    name: 'Facundo Fiorino',
-    affiliation: 'UL Research Institutes',
-    url: 'https://dsri.org/team/facundo-fiorino/',
-    bio: 'Director of Engineering at the Digital Safety Research Institute at UL Research Institutes, which he joined in 2026. He brings more than 25 years of experience delivering large-scale systems and AI/ML prototypes across the federal and private sectors; previously, he founded and led Azul Engineering, delivering systems engineering and AI/ML solutions to clients including the FAA and GSA. He holds an M.S. in Computer Engineering from George Washington University and a B.S. in Electrical Engineering from the University of Maryland.',
-    photo: '/images/fiorino.jpg',
+    name: 'Andrew Owens',
+    affiliation: 'Cornell Tech',
+    url: 'https://andrewowens.com/',
+    bio: 'Associate Professor of Computer Science at Cornell Tech. He has developed early methods for self-supervised image forensics and AI-generated image detection. He has organized the yearly CVPR Sight and Sound workshop (2018–2026) and was a CVPR Workshop Chair in 2024.',
+    photo: '/images/owens.jpg',
   },
 ];
 
-// Program Committee — prospective members; participation and affiliations
-// are being confirmed for CVPR 2027.
+// Program Committee — reviewers who have confirmed for CVPR 2027.
 export const programCommittee = {
   description:
-    'We plan three reviews per submission and a target load of at most three papers per reviewer. The Program Committee draws on prior APAI committees and the communities represented by the workshop’s three research pillars. The prospective members below are tentative; their participation and affiliations are being confirmed for CVPR 2027.',
+    'We plan three reviews per submission and a target load of at most three papers per reviewer; for the expected 40–60 submissions, this requires 40–60 active reviewers, subject to conflicts and expertise. We have already received reviewing confirmations from many prospective reviewers, listed below, and will continue to recruit from the communities represented by the workshop’s four research pillars.',
   note: 'Additional reviewers will be listed here as invitations are confirmed.',
   // Set to a reviewer self-nomination form URL to show the button.
   nominateUrl: '',
@@ -154,7 +203,7 @@ export const programCommittee = {
     { name: 'Benedikt Lorch', affiliation: 'GetReal Security' },
     {
       name: 'Chandrakanth Gudavalli',
-      affiliation: 'University of California Santa Barbara',
+      affiliation: 'University of California, Santa Barbara',
     },
     { name: 'Seonwook Park', affiliation: 'NVIDIA' },
     { name: 'Amrita Mazumdar', affiliation: 'NVIDIA' },
@@ -180,7 +229,7 @@ export interface ScheduleItem {
 
 // Preliminary five-hour program, illustrated as a 13:00–18:00 afternoon slot.
 export const scheduleNote =
-  'Preliminary five-hour, half-day program. Times illustrate a 13:00–18:00 afternoon slot; CVPR will assign the actual date and start time. If a different slot is assigned, times will shift while the session order and durations stay the same.';
+  'Preliminary five-hour, half-day program. Times illustrate a 13:00–18:00 afternoon slot; CVPR will assign the actual date and start time. If a different slot is assigned, times will shift while the session order and durations stay the same. Speaker assignments and sponsored activities remain provisional.';
 
 export const schedule: ScheduleItem[] = [
   { time: '13:00 – 13:10', title: 'Opening remarks' },
@@ -204,7 +253,7 @@ export const schedule: ScheduleItem[] = [
   {
     time: '14:40 – 14:55',
     title: 'Poster fast-forward presentations',
-    detail: '30 seconds per poster',
+    detail: '30 seconds per poster, for an anticipated 14–24 posters',
   },
   { time: '14:55 – 15:30', title: 'Coffee break and poster discussion' },
   {
@@ -232,7 +281,7 @@ export const schedule: ScheduleItem[] = [
   {
     time: '17:15 – 17:50',
     title: 'Panel discussion',
-    detail: 'Including time for audience questions',
+    detail: 'Moderated by David Luebke · including time for audience questions',
   },
   { time: '17:50 – 18:00', title: 'Closing and best-paper announcements' },
 ];
@@ -252,15 +301,15 @@ export const cfp = {
       title: 'Main paper track',
       tag: 'Archival',
       body:
-        'Research submissions across all three pillars: verification and forensic attribution, provenance and creator attribution, and authorized use of AI-mediated interactions, including identity verification. Accepted papers appear in the CVPR 2027 workshop proceedings.',
-      deadline: 'Paper deadline: February 19, 2027 (AoE)',
+        'Research submissions across all four pillars: detection and forensic attribution, provenance and creator attribution, provenance for biological design, and authorized use of AI-mediated interactions, including identity verification. Accepted papers appear in the CVPR 2027 workshop proceedings.',
+      deadline: 'Paper deadline: February 28, 2027 (AoE)',
       href: '#submission-details',
     },
     {
       title: 'Competition track',
       tag: 'Impostor Avatar Challenge',
       body:
-        'Develop and submit systems from the December 2026 launch through June 6, 2027 — just over six months, closing roughly two weeks before the workshop. Participation, awards, and winning-team presentations do not require an archival paper.',
+        'Develop and submit systems from the December 15, 2026 launch through June 6, 2027 — about six months, closing roughly two weeks before the workshop. Participation, awards, and winning-team presentations do not require an archival paper.',
       deadline: 'System deadline: June 6, 2027 (AoE)',
       href: '/challenge',
     },
@@ -268,12 +317,12 @@ export const cfp = {
   details: [
     'Submissions are handled through OpenReview with double-blind review. All authors must have complete OpenReview profiles.',
     'Submissions must follow the CVPR 2027 paper submission style, format, and length restrictions, including the eight-page main-text limit, excluding references and the required LLM Usage Statement.',
-    'Each submission receives three reviews. Accepted papers are presented either as one of six five-minute spotlight talks or as posters with fast-forward presentations; acceptance depends on review outcomes rather than a fixed quota.',
+    'Each submission receives three reviews. Six accepted papers are presented as five-minute spotlight talks, and other accepted contributions are presented as posters with fast-forward presentations; acceptance depends on review outcomes rather than a fixed quota.',
     'Contributors will be asked to describe dataset permissions, limitations, and relevant safeguards.',
   ],
   topicGroups: [
     {
-      title: 'Verification and forensic attribution',
+      title: 'Detection and forensic attribution',
       topics: [
         'Synthetic-media detection',
         'Manipulation localization',
@@ -294,6 +343,15 @@ export const cfp = {
       ],
     },
     {
+      title: 'Provenance for biological design',
+      topics: [
+        'Verifiable origin of AI-designed sequences and structures as designs are modified and synthesized',
+        'Watermarking that preserves biological function',
+        'Metadata-based provenance for molecular and structural data',
+        'Implications for biosecurity screening and database integrity',
+      ],
+    },
+    {
       title: 'Authorized use of AI-mediated interactions',
       topics: [
         'Avatar fingerprinting',
@@ -301,6 +359,8 @@ export const cfp = {
         'Impersonation defenses',
         'Identity, consent, and access policies',
         'Identity leakage, motion representations, and audio avatars',
+        'Distinguishing driver-identity verification from authorization of a particular use',
+        'Reliability under bandwidth constraints, video compression, and channel degradation',
       ],
     },
     {
@@ -316,13 +376,13 @@ export const cfp = {
     {
       date: 'December 2026',
       label:
-        'Paper submissions open on OpenReview upon workshop acceptance (decision expected December 22)',
+        'Website, call for papers, and OpenReview submissions open upon workshop acceptance (decision expected December 22)',
     },
-    { date: 'February 19, 2027', label: 'Paper submission deadline' },
-    { date: 'February 22 – March 12', label: 'Review period' },
-    { date: 'March 15 – 18', label: 'Reviewer discussion and final decisions' },
-    { date: 'March 19', label: 'Author notification' },
-    { date: 'March 22 – 26', label: 'Author confirmations and metadata verification' },
+    { date: 'February 28, 2027', label: 'Paper submission deadline' },
+    { date: 'March 1 – 19', label: 'Peer review' },
+    { date: 'March 20 – 21', label: 'Discussion and decisions' },
+    { date: 'March 22', label: 'Author notification' },
+    { date: 'March 23 – 26', label: 'Author and metadata checks' },
     {
       date: 'March 29',
       label: 'CVPR accepted-paper author metadata deadline',
@@ -338,6 +398,7 @@ export const cfp = {
     'Challenge submissions are evaluated systems rather than proceedings submissions; participation, awards, and winning-team presentations do not require an archival paper. Teams seeking archival publication must separately submit a paper by the paper deadline and complete the same peer-review and publication process as other authors.',
   ],
   conflicts: [
+    'The working conflict policy excludes submissions from organizers and from people with personal conflicts with organizers, including their students, postdocs, and close collaborators on the submitted work.',
     'Organizers will not assess submissions from their own organization, and reviewers will declare conflicts before assignment.',
     'In line with CVPR policy, each author may submit at most ten papers to a single workshop.',
   ],
@@ -355,8 +416,9 @@ export const challenge = {
   summary:
     'Is this talking-head video driven by the person it depicts? The Impostor Avatar Challenge evaluates identity verification in synthetic avatar communication, building on avatar fingerprinting.',
   overview: [
-    'The motivating application is avatar-based videoconferencing, where the person controlling a synthetic representation should remain verifiably linked to the claimed identity throughout the interaction. A system receives authentic enrollment videos for registered users and evaluates subsequent videos against a claimed identity.',
-    'Unlike earlier challenges that targeted the detection, attribution, or localization of synthetic media, this challenge tests the identity relationship between the visible person and the driver when the video is already known to be synthetic.',
+    'The motivating application is avatar-based videoconferencing, where the person controlling a synthetic representation should remain verifiably linked to the claimed identity throughout the interaction. A system receives authentic enrollment videos for registered users and evaluates subsequent videos against a claimed identity. The driving identity must remain verifiable from the video received after encoding and transmission, and the challenge results will inform discussion of robustness under these conditions.',
+    'Earlier evaluations, including the SAFE challenges and VASDL at APAI CVPR 2026, focused on the detection, attribution, and temporal localization of synthetic and manipulated media. This challenge takes a new direction: given a synthetic talking-head video, verify who drives it.',
+    'The challenge builds on DSRI’s experience running the SAFE video, SAFE audio, and image-edit detection evaluations, and adopts the Dyff container-based inference interface from the image-edit challenge, adapting its inputs and outputs to driver verification and identification.',
   ],
   tasks: [
     {
@@ -367,19 +429,17 @@ export const challenge = {
     {
       title: 'Closed-set driver identification',
       body:
-        'Identify the driving person from a fixed registered set during impostor segments. This is a proposed extension; its interface and scoring will be finalized in the public protocol.',
+        'Identify the driving person from a fixed registered set during impostor segments.',
     },
   ],
   data: [
     'The evaluation uses authentic enrollment videos and separately constructed challenge videos with temporal ground truth. Cases include matching and mismatching driver identities and changes in match status within a video.',
-    'Participants may request NVFAIR for training. The challenge evaluation uses separately constructed, similar data rather than the existing NVFAIR test split. Enrollment and development materials are released with the protocol at launch, while Small and Full Test media remain sequestered.',
-    'The public protocol defines the registered driver set, permitted inputs, identity labels, and the separation of training, development, and evaluation data.',
+    'Participants may request the NVFAIR dataset for training. NVFAIR is a suggested training resource; participants may also draw on datasets such as DeepSpeak and VoxCeleb, subject to their access conditions, licenses, and the challenge protocol. These provide complementary audiovisual material but do not replace the challenge-specific enrollment and evaluation data.',
+    'The challenge evaluation uses separately constructed, similar data rather than the existing NVFAIR test split. Enrollment and development materials are released with the protocol at launch, while Small and Full Test media remain sequestered. The public protocol defines the registered driver set, permitted inputs, identity labels, and the separation of training, development, and evaluation data.',
   ],
   submission: [
     'Teams submit Docker containers exposing an HTTP inference API, with an optional separate volume for model weights.',
     'The planned evaluation environment provides one NVIDIA L4 GPU, eight vCPUs, and 32 GiB of memory per system.',
-    'All evaluation identities are enrolled before verification; the draft protocol targets registration within 60 seconds per user.',
-    'Verification outputs are time-indexed match likelihoods between 0 and 1, reported to four decimal places; values above 0.5 are treated as matches.',
   ],
   stages: [
     {
@@ -392,33 +452,33 @@ export const challenge = {
     },
     {
       title: 'Full Test',
-      body: 'Eligible systems enter the Full Test, whose results determine the final ranking.',
+      body: 'Final evaluation of eligible systems on sequestered data, determining the ranking.',
     },
   ],
   metrics: [
-    'The draft verification metric aggregates per-video scores based on temporal matching behavior, with separate treatment of entirely mismatching videos.',
-    'For identification, we propose top-1 driver accuracy on ground-truth impostor segments, reported separately from verification.',
-    'Final metric definitions will be published with the protocol. In addition to producing rankings, the evaluation team will analyze system capabilities and limitations.',
+    'Verification metrics aggregate per-video scores and report standard measures such as accuracy and ROC AUC, alongside metrics for the speed and efficiency of participants’ methods.',
+    'In addition to producing rankings, the evaluation team will analyze system capabilities and limitations.',
+    'The evaluation strategy will be further refined and announced on the challenge submission system.',
   ],
   integrity: [
-    'Before release, the evaluation team will confirm permission for enrollment, reenactment, evaluation, and controlled data sharing, including withdrawal procedures and access restrictions. Permissions for NVFAIR do not automatically cover newly collected or generated challenge data.',
-    'The protocol uses pseudonymous driver identifiers and keeps evaluation labels private. Where the dataset supports it, the evaluation will examine variation across subjects and generators and document the limits of those comparisons.',
+    'Before release, the evaluation team will confirm permission for enrollment, reenactment, evaluation, and controlled data sharing, including withdrawal procedures and access restrictions for the NVFAIR dataset.',
+    'The protocol uses pseudonymous driver identities from NVFAIR and will adhere to similar measures for additional test data. Where the dataset supports it, the evaluation will examine qualitative variation across subjects (without uniquely identifying them) and generators, and document the limits of those comparisons.',
     'Rules governing organizer participation, baselines, and prize eligibility will be published before launch so that access to evaluation data does not confer an advantage. Participant citation requirements will be limited to work directly relevant to the challenge.',
   ],
   timeline: [
-    { date: 'December 1, 2026', label: 'Challenge launch: public protocol, enrollment and development materials, and submission interface' },
-    { date: 'December 1 – June 6', label: 'Participant development, rolling submissions, and Interface and Small Test feedback' },
-    { date: 'June 6, 2027 (AoE)', label: 'Final container and model-weight submission deadline; systems are frozen for final evaluation' },
+    { date: 'December 15, 2026', label: 'Challenge launch: public protocol, enrollment and development materials, and submission interface' },
+    { date: 'December 15 – June 6', label: 'Participant development, rolling submissions, and Interface and Small Tests' },
+    { date: 'June 6, 2027 (AoE)', label: 'Final containers and model weights due; systems are frozen for final evaluation' },
     { date: 'June 7 – 11', label: 'Sequestered Full Test evaluation and integrity checks' },
-    { date: 'June 12', label: 'Private results and provisional winner notification to teams' },
-    { date: 'June 12 – 14', label: 'Evaluation queries and corrections to evaluation errors, without model changes' },
-    { date: 'June 15', label: 'Final confirmation to teams and preparation of workshop presentations' },
-    { date: 'June 20 or 21', label: 'Public winner announcements, team presentations, and evaluation discussion at the workshop' },
+    { date: 'June 15', label: 'Team confirmation and preparation of workshop presentations' },
+    { date: 'June 20 or 21', label: 'Winner announcements, team presentations, and evaluation discussion at the workshop' },
   ] as DateItem[],
   timelineNotes: [
-    'The challenge launches independently in early December, ahead of CVPR’s workshop acceptance notification; the results session at CVPR is conditional on workshop acceptance. The June challenge deadline is independent of the archival paper deadlines and does not extend them.',
-    'If data or interface preparation is delayed, the launch and submission dates will be revised while preserving at least six months of development time from the release of usable materials. If a fair final evaluation cannot be completed before CVPR, the session will report verified interim findings and defer winner announcements.',
+    'The December 15 launch precedes CVPR’s December 22 workshop acceptance notification and is therefore an independent challenge launch; the results session at CVPR is conditional on workshop acceptance. The June challenge deadline is independent of the archival paper deadlines and does not extend them.',
+    'These dates and the final evaluation capacity are subject to confirmation with the evaluation team. If data or interface preparation is delayed, the launch and submission dates will be revised while preserving at least five months of participant development time from the release of usable materials. If a fair final evaluation cannot be completed before CVPR, the session will report verified interim findings and defer winner announcements.',
   ],
+  prizes:
+    'The top performer in the challenge will receive a GPU prize. The exact GPU model will be chosen to comply with US government export restrictions, which may mean we cannot ship a GPU to every location.',
   atWorkshop:
-    'The workshop announces the winners, hosts presentations from leading teams, and examines the evaluation team’s findings on system capabilities and limitations. The session connects these findings to the broader questions about identity evidence and practical verification raised in the research program and the closing panel.',
+    'The workshop announces the winners, hosts presentations from leading teams, and examines the organizers’ findings on system capabilities and limitations. The session connects these findings to broader questions about identity evidence and how practical verification techniques need to evolve as AI-mediated interactions become prevalent.',
 };

@@ -1,7 +1,7 @@
 {
   "name": "dpai-cvpr2027.github.io",
   "version": "1.0.0",
-  "description": "Workshop website for DPAI @ CVPR 2027 — Detection, Provenance, and Authorized Use of Generative AI",
+  "description": "Workshop website for DPAI @ CVPR 2027 — Detection, Provenance, and Authorized Use of AI",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

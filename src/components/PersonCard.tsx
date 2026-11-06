@@ -37,6 +37,13 @@ export default function PersonCard({ person, showBio = true }: PersonCardProps) 
           )}
         </div>
         <p className="text-sm text-neutral-500 mt-0.5">{person.affiliation}</p>
+        {(person.role || person.topic) && (
+          <p className="text-sm text-neutral-700 mt-1">
+            {person.role && <span className="font-semibold">{person.role}</span>}
+            {person.role && person.topic && ' · '}
+            {person.topic && <em>{person.topic}</em>}
+          </p>
+        )}
         {showBio && person.bio && (
           <p className="text-sm text-neutral-700 leading-relaxed mt-2">
             {person.bio}
